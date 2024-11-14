@@ -2,3 +2,4 @@ input/**/*
 instructions/**/*
 others/**/*
 .env
+scratch*
