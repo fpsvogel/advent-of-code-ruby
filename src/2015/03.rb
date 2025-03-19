@@ -8,7 +8,7 @@ module Year2015
       ">" => Vector[1, 0],
       "<" => Vector[-1, 0],
       "^" => Vector[0, 1],
-      "v" => Vector[0, -1],
+      "v" => Vector[0, -1]
     }
 
     def part_1(input_file)

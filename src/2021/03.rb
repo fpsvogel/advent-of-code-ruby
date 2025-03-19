@@ -29,7 +29,7 @@ module Year2021
 
     CRITERIA = {
       max: {-1 => "1", 0 => "1", 1 => "0"},
-      min: {-1 => "0", 0 => "0", 1 => "1"},
+      min: {-1 => "0", 0 => "0", 1 => "1"}
     }
 
     # @param numbers [Array<String>] binary numbers

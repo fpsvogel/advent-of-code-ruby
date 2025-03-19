@@ -5,8 +5,8 @@ module Year2022
       rounds = input_file.readlines(chomp: true).map(&:split)
 
       rounds.sum { |opp, you|
-        opp = %w(A B C).index(opp)
-        you = %w(X Y Z).index(you)
+        opp = %w[A B C].index(opp)
+        you = %w[X Y Z].index(you)
 
         score = you + 1
         if opp == you
@@ -23,7 +23,7 @@ module Year2022
       rounds = input_file.readlines(chomp: true).map(&:split)
 
       rounds.sum { |opp, you|
-        opp = %w(A B C).index(opp)
+        opp = %w[A B C].index(opp)
 
         case you
         when "X" # lose

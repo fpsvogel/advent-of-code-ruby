@@ -6,7 +6,7 @@ module Year2015
         .map { |line| line.split("x").map(&:to_i) }
 
       edges.sum { |l, w, h|
-        faces = [l*w, w*h, h*l]
+        faces = [l * w, w * h, h * l]
         faces.sum * 2 + faces.min
       }
     end

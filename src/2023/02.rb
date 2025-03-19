@@ -15,7 +15,7 @@ module Year2023
 
         i + 1 if game_possible
       }
-      .sum
+        .sum
     end
 
     def part_2(input_file)
