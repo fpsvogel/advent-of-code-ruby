@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 # https://adventofcode.com/2015/day/7
 module Year2015
   class Day07
-    REGEX = %r{\A
+    REGEX = /\A
       (?:
         (?:(?<value_1_source>[a-z\d]+)\s)?
         (?:(?<operator>AND|OR|LSHIFT|RSHIFT|NOT)\s)?
@@ -9,9 +11,10 @@ module Year2015
       )
       ->\s
       (?<destination>[a-z]+)
-    \z}x
+    \z/x
 
-    BINARY_OPERATORS = {
+    OPERATORS = {
+      "NOT" => :~,
       "AND" => :&,
       "OR" => :|,
       "LSHIFT" => :<<,
@@ -23,15 +26,30 @@ module Year2015
       wires = wires(lines)
 
       return wires if running_in_specs?
+
       wires[:a]
     end
 
     def part_2(input_file)
       lines = input_file.readlines(chomp: true)
-      wires = wires(lines)
-      wires = wires(lines, b_override: wires[:a])
+      wires_original = wires(lines)
+      wires_overridden = wires(lines, b_override: wires_original[:a])
 
-      wires[:a]
+      wires_overridden[:a]
+    end
+
+    def part_1_assuming_destination_ordering(input_file)
+      input = input_file.read
+      circuit = input
+        .gsub(Regexp.union(OPERATORS.keys), OPERATORS)
+        .gsub(/(.+) -> (\w+)/) { format("%2s = #{::Regexp.last_match(1)}", ::Regexp.last_match(2)) }
+        .gsub(/([a-z]+)/, '_\\1') # Prefix variables to avoid conflicts with Ruby keywords
+        .split("\n")
+        .sort
+        .rotate
+        .join("\n")
+
+      eval(circuit)
     end
 
     private
@@ -52,7 +70,7 @@ module Year2015
           .except(:destination)
       end
 
-      wires.keys.each do |destination|
+      wires.each_key do |destination|
         resolve(destination, wires:, b_override:)
       end
 
@@ -76,7 +94,7 @@ module Year2015
 
       wires[destination] =
         if value_1 && value_2
-          value_1.send(BINARY_OPERATORS[operator], value_2)
+          value_1.send(OPERATORS[operator], value_2)
         elsif operator == "NOT"
           ~value_2 & 0xFFFF
         else
