@@ -1,18 +1,18 @@
 RSpec.describe Year2023::Day01 do
-  let(:input_1) {
+  let(:input_1) do
     StringIO.new(
-      <<~IN
+      <<~END
         1abc2
         pqr3stu8vwx
         a1b2c3d4e5f
         treb7uchet
-      IN
+      END
     )
-  }
+  end
 
-  let(:input_2) {
+  let(:input_2) do
     StringIO.new(
-      <<~IN +
+      <<~END
         two1nine
         eightwothree
         abcone2threexyz
@@ -20,13 +20,11 @@ RSpec.describe Year2023::Day01 do
         4nineeightseven2
         zoneight234
         7pqrstsixteen
-      IN
-      <<~IN
         rlsucirultesirnsoamnstsrm124oneight
         rlsucirultesirnsoamnstsrmoneight124
-      IN
+      END
     )
-  }
+  end
 
   it "solves Part One" do
     expect(subject.part_1(input_1)).to eq(142)

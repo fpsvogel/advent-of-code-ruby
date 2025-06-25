@@ -1,16 +1,16 @@
 RSpec.describe Year2020::Day01 do
-  let(:input) {
+  let(:input) do
     StringIO.new(
-      <<~IN
+      <<~END
         1721
         979
         366
         299
         675
         1456
-      IN
+      END
     )
-  }
+  end
 
   it "solves Part One" do
     expect(subject.part_1(input)).to eq(514579)

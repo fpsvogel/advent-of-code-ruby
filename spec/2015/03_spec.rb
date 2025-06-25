@@ -1,11 +1,11 @@
 RSpec.describe Year2015::Day03 do
-  let(:input) {
+  let(:input) do
     StringIO.new(
-      <<~IN
+      <<~END
         >^>v<^
-      IN
+      END
     )
-  }
+  end
 
   it "solves Part One" do
     expect(subject.part_1(input)).to eq(5)

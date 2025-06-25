@@ -1,13 +1,13 @@
 RSpec.describe Year2015::Day06 do
-  let(:input) {
+  let(:input) do
     StringIO.new(
-      <<~IN
+      <<~END
         turn on 0,1 through 999,1
         turn off 499,1 through 500,1
         toggle 498,1 through 501,2
-      IN
+      END
     )
-  }
+  end
 
   it "solves Part One" do
     expect(subject.part_1(input)).to eq(1002)

@@ -1,26 +1,26 @@
 RSpec.describe Year2015::Day05 do
-  let(:input_1) {
+  let(:input_1) do
     StringIO.new(
-      <<~IN
+      <<~END
         ugknbfddgicrmopn
         aaa
         jchzalrnumimnmhp
         haegwjzuvuyypxyu
         dvszwmarrgswjxmb
-      IN
+      END
     )
-  }
+  end
 
-  let(:input_2) {
+  let(:input_2) do
     StringIO.new(
-      <<~IN
+      <<~END
         qjhvhtzxzqqjkmpb
         xxyxx
         uurcxstgmygtbstg
         ieodomkazucvgmuy
-      IN
+      END
     )
-  }
+  end
 
   it "solves Part One" do
     expect(subject.part_1(input_1)).to eq(2)

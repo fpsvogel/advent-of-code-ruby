@@ -1,7 +1,7 @@
 RSpec.describe Year2021::Day01 do
-  let(:input) {
+  let(:input) do
     StringIO.new(
-      <<~IN
+      <<~END
         199
         200
         208
@@ -12,9 +12,9 @@ RSpec.describe Year2021::Day01 do
         269
         260
         263
-      IN
+      END
     )
-  }
+  end
 
   it "solves Part One" do
     expect(subject.part_1(input)).to eq(7)

@@ -1,16 +1,16 @@
 RSpec.describe Year2021::Day02 do
-  let(:input) {
+  let(:input) do
     StringIO.new(
-      <<~IN
+      <<~END
         forward 5
         down 5
         forward 8
         up 3
         down 8
         forward 2
-      IN
+      END
     )
-  }
+  end
 
   it "solves Part One" do
     expect(subject.part_1(input)).to eq(150)

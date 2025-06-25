@@ -1,7 +1,7 @@
 RSpec.describe Year2015::Day07 do
-  let(:input) {
+  let(:input) do
     StringIO.new(
-      <<~IN
+      <<~END
         123 -> x
         456 -> y
         x AND y -> d
@@ -10,9 +10,9 @@ RSpec.describe Year2015::Day07 do
         y RSHIFT 2 -> g
         NOT x -> h
         NOT y -> i
-      IN
+      END
     )
-  }
+  end
 
   it "solves Part One" do
     expect(subject.part_1(input)).to eq(
