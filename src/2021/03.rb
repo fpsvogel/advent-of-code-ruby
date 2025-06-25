@@ -6,7 +6,7 @@ module Year2021
 
       number_from_most_common_bits = columns
         .map(&:tally)
-        .map { _1.max_by(&:last).first }
+        .map { it.max_by(&:last).first }
         .join
         .to_i(2)
       ones_complement = number_from_most_common_bits.to_s(2).tr("10", "01").to_i(2)
@@ -37,10 +37,10 @@ module Year2021
     def rating(frequency, numbers, i = 0)
       return numbers.first.to_i(2) if numbers.count == 1
 
-      column = numbers.map { _1[i] }
+      column = numbers.map { it[i] }
       zeros, ones = column.tally.values_at("0", "1")
       digit_to_keep = CRITERIA[frequency][zeros <=> ones]
-      numbers = numbers.select { _1[i] == digit_to_keep }
+      numbers = numbers.select { it[i] == digit_to_keep }
       rating(frequency, numbers, i + 1)
     end
   end

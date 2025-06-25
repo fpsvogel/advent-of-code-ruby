@@ -10,7 +10,7 @@ module Year2023
       lines = input_file.readlines(chomp: true)
 
       number_words_to_digits(lines)
-        .then { sum_first_and_last_numbers(_1) }
+        .then { sum_first_and_last_numbers(it) }
     end
 
     private

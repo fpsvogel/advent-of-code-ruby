@@ -7,7 +7,7 @@ module Year2017
 
       captcha
         .chunk_while { _1 == _2 }
-        .map { _1.drop(1) }
+        .map { it.drop(1) }
         .flatten
         .sum
     end
