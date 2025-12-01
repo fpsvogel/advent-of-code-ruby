@@ -9,10 +9,10 @@ RSpec.describe Year2015::Day02 do
   end
 
   it "solves Part One" do
-    expect(subject.part_1(input)).to eq(101)
+    expect(subject.part_1(input)).to eq 101
   end
 
   it "solves Part Two" do
-    expect(subject.part_2(input)).to eq(48)
+    expect(subject.part_2(input)).to eq 48
   end
 end
