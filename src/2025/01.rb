@@ -34,7 +34,7 @@ module Year2025
       input_file
         .readlines(chomp: true)
         .map {
-          it[/(?<=R)\d+/]&.to_i || -it[/(?<=L)\d+/]&.to_i
+          it.tr("LR", "-+").to_i
         }
     end
   end
