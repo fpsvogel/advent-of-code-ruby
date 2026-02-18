@@ -2,14 +2,11 @@
 module Year2023
   class Day01
     def part_1(input_file)
-      lines = input_file.readlines(chomp: true)
-      sum_first_and_last_numbers(lines)
+      sum_first_and_last_numbers(input_file)
     end
 
     def part_2(input_file)
-      lines = input_file.readlines(chomp: true)
-
-      number_words_to_digits(lines)
+      number_words_to_digits(input_file)
         .then { sum_first_and_last_numbers(it) }
     end
 
@@ -17,8 +14,8 @@ module Year2023
 
     WORDS_TO_DIGITS = %w[one two three four five six seven eight nine].zip(1..9).to_h
 
-    def sum_first_and_last_numbers(lines)
-      lines.map { |line|
+    def sum_first_and_last_numbers(input_file)
+      input_file.map { |line|
         line
           .scan(/\d/)
           .then { |nums| [nums.first, nums.last] }

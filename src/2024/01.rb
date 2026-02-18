@@ -2,16 +2,14 @@
 module Year2024
   class Day01
     def part_1(input_file)
-      lines = input_file.readlines(chomp: true)
-      sorted_lists(lines)
+      sorted_lists(input_file)
         .transpose
         .map { (_1 - _2).abs }
         .sum
     end
 
     def part_2(input_file)
-      lines = input_file.readlines(chomp: true)
-      list_a, list_b = sorted_lists(lines)
+      list_a, list_b = sorted_lists(input_file)
       list_b_tallies = list_b.tally
       list_a
         .map { |n| n * (list_b_tallies[n] || 0) }
@@ -20,8 +18,8 @@ module Year2024
 
     private
 
-    def sorted_lists(lines)
-      lines
+    def sorted_lists(input_file)
+      input_file
         .map { it.split.map(&:to_i) }
         .transpose
         .map(&:sort)

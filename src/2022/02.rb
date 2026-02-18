@@ -2,7 +2,7 @@
 module Year2022
   class Day02
     def part_1(input_file)
-      rounds = input_file.readlines(chomp: true).map(&:split)
+      rounds = input_file.map(&:split)
 
       rounds.sum { |opp, you|
         opp = %w[A B C].index(opp)

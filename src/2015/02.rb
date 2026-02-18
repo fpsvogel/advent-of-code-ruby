@@ -2,7 +2,7 @@
 module Year2015
   class Day02
     def part_1(input_file)
-      edges = input_file.readlines(chomp: true)
+      edges = input_file
         .map { |line| line.split("x").map(&:to_i) }
 
       edges.sum { |l, w, h|
@@ -12,7 +12,7 @@ module Year2015
     end
 
     def part_2(input_file)
-      edges = input_file.readlines(chomp: true)
+      edges = input_file
         .map { |line| line.split("x").map(&:to_i) }
 
       edges.sum { |edges|

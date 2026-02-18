@@ -2,11 +2,9 @@
 module Year2023
   class Day02
     def part_1(input_file)
-      lines = input_file.readlines(chomp: true)
-
       possible = {red: 12, green: 13, blue: 14}
 
-      games(lines).filter_map.with_index { |rounds, i|
+      games(input_file).filter_map.with_index { |rounds, i|
         game_possible = rounds.all? { |colors|
           colors.all? { |color, count|
             count <= possible[color]
@@ -19,9 +17,7 @@ module Year2023
     end
 
     def part_2(input_file)
-      lines = input_file.readlines(chomp: true)
-
-      mins = games(lines).map { |rounds|
+      mins = games(input_file).map { |rounds|
         red = rounds.map { it[:red] || 0 }.max
         green = rounds.map { it[:green] || 0 }.max
         blue = rounds.map { it[:blue] || 0 }.max
@@ -34,8 +30,8 @@ module Year2023
 
     private
 
-    def games(lines)
-      lines.map { |line|
+    def games(input_file)
+      input_file.map { |line|
         line
           .split(":")
           .last

@@ -2,13 +2,13 @@
 module Year2018
   class Day01
     def part_1(input_file)
-      changes = input_file.readlines.map(&:to_i)
+      changes = input_file.map(&:to_i)
 
       changes.sum
     end
 
     def part_2(input_file)
-      changes = input_file.readlines.map(&:to_i)
+      changes = input_file.map(&:to_i)
       reached_frequencies = Set.new
       frequency = 0
 

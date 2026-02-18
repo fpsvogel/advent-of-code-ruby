@@ -2,9 +2,7 @@
 module Year2015
   class Day05
     def part_1(input_file)
-      lines = input_file.readlines(chomp: true)
-
-      lines.count { |line|
+      input_file.count { |line|
         includes_at_least_3_vowels?(line) &&
           includes_letter_repeated_consecutively?(line) &&
           excludes_naughty_letter_pairs?(line)
@@ -12,9 +10,7 @@ module Year2015
     end
 
     def part_2(input_file)
-      lines = input_file.readlines(chomp: true)
-
-      lines.count { |line|
+      input_file.count { |line|
         includes_non_overlapping_letter_pair_twice?(line) &&
           includes_letter_pair_separated_by_letter?(line)
       }

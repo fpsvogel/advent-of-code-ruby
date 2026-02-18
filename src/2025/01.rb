@@ -32,7 +32,6 @@ module Year2025
 
     def moves(input_file)
       input_file
-        .readlines(chomp: true)
         .map {
           it.tr("LR", "-+").to_i
         }

@@ -2,7 +2,6 @@
 module Year2015
   class Day06
     def part_1(input_file)
-      lines = input_file.readlines(chomp: true)
       grid = Array.new(1000) { Array.new(1000, false) }
       actions = {
         "turn on" => ->(_) { true },
@@ -10,13 +9,12 @@ module Year2015
         "toggle" => ->(v) { !v }
       }
 
-      act_on_grid(grid:, actions:, lines:)
+      act_on_grid(grid:, actions:, input_file:)
 
       grid.flatten.count(true)
     end
 
     def part_2(input_file)
-      lines = input_file.readlines(chomp: true)
       grid = Array.new(1000) { Array.new(1000, 0) }
       actions = {
         "turn on" => ->(v) { v + 1 },
@@ -24,15 +22,15 @@ module Year2015
         "toggle" => ->(v) { v + 2 }
       }
 
-      act_on_grid(grid:, actions:, lines:)
+      act_on_grid(grid:, actions:, input_file:)
 
       grid.flatten.sum
     end
 
     private
 
-    def act_on_grid(grid:, actions:, lines:)
-      lines.each do |line|
+    def act_on_grid(grid:, actions:, input_file:)
+      input_file.each do |line|
         /(?<action>[a-z ]+) (?<x0>\d+),(?<y0>\d+) through (?<x1>\d+),(?<y1>\d+)/ =~ line
 
         (x0.to_i..x1.to_i).each do |x|
