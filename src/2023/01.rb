@@ -1,12 +1,12 @@
 # https://adventofcode.com/2023/day/1
 module Year2023
   class Day01
-    def part_1(input_file)
-      sum_first_and_last_numbers(input_file)
+    def part_1(file)
+      sum_first_and_last_numbers(file)
     end
 
-    def part_2(input_file)
-      number_words_to_digits(input_file)
+    def part_2(file)
+      number_words_to_digits(file)
         .then { sum_first_and_last_numbers(it) }
     end
 
@@ -14,8 +14,8 @@ module Year2023
 
     WORDS_TO_DIGITS = %w[one two three four five six seven eight nine].zip(1..9).to_h
 
-    def sum_first_and_last_numbers(input_file)
-      input_file.map { |line|
+    def sum_first_and_last_numbers(file)
+      file.map { |line|
         line
           .scan(/\d/)
           .then { |nums| [nums.first, nums.last] }

@@ -1,8 +1,8 @@
 # https://adventofcode.com/2021/day/3
 module Year2021
   class Day03
-    def part_1(input_file)
-      columns = input_file.readlines(chomp: true).map(&:chars).transpose
+    def part_1(file)
+      columns = file.readlines(chomp: true).map(&:chars).transpose
 
       number_from_most_common_bits = columns
         .map(&:tally)
@@ -16,8 +16,8 @@ module Year2021
     end
 
     # Inspired by https://github.com/eregon/adventofcode/blob/master/2021/3b.rb
-    def part_2(input_file)
-      numbers = input_file.readlines(chomp: true)
+    def part_2(file)
+      numbers = file.readlines(chomp: true)
 
       oxygen = rating(:max, numbers)
       co2 = rating(:min, numbers)

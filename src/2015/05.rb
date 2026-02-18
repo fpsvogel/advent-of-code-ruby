@@ -1,16 +1,16 @@
 # https://adventofcode.com/2015/day/5
 module Year2015
   class Day05
-    def part_1(input_file)
-      input_file.count { |line|
+    def part_1(file)
+      file.count { |line|
         includes_at_least_3_vowels?(line) &&
           includes_letter_repeated_consecutively?(line) &&
           excludes_naughty_letter_pairs?(line)
       }
     end
 
-    def part_2(input_file)
-      input_file.count { |line|
+    def part_2(file)
+      file.count { |line|
         includes_non_overlapping_letter_pair_twice?(line) &&
           includes_letter_pair_separated_by_letter?(line)
       }

@@ -1,11 +1,11 @@
 # https://adventofcode.com/2025/day/1
 module Year2025
   class Day01
-    def part_1(input_file)
+    def part_1(file)
       zeros = 0
       dial = 50
 
-      moves(input_file).each do |move|
+      moves(file).each do |move|
         dial = (dial + move) % 100
         zeros += 1 if dial.zero?
       end
@@ -13,11 +13,11 @@ module Year2025
       zeros
     end
 
-    def part_2(input_file)
+    def part_2(file)
       zeros = 0
       dial = 50
 
-      moves(input_file).each do |move|
+      moves(file).each do |move|
         step = move.positive? ? 1 : -1
         move.abs.times do
           dial = (dial + step) % 100
@@ -30,8 +30,8 @@ module Year2025
 
     private
 
-    def moves(input_file)
-      input_file
+    def moves(file)
+      file
         .map {
           it.tr("LR", "-+").to_i
         }

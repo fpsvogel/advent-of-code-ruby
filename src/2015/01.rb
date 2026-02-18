@@ -1,8 +1,8 @@
 # https://adventofcode.com/2015/day/1
 module Year2015
   class Day01
-    def part_1(input_file)
-      input = input_file.read
+    def part_1(file)
+      input = file.read
 
       up = input.count("(")
       down = input.count(")")
@@ -10,8 +10,8 @@ module Year2015
       up - down
     end
 
-    def part_2(input_file)
-      input = input_file.read
+    def part_2(file)
+      input = file.read
       floor = 0
 
       input.chars.each_with_index do |char, i|

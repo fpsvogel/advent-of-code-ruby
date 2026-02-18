@@ -11,8 +11,8 @@ module Year2015
       "v" => Vector[0, -1]
     }
 
-    def part_1(input_file)
-      directions = input_file.read.chomp
+    def part_1(file)
+      directions = file.read.chomp
       santa = Vector[0, 0]
       visited = (Set.new << santa)
 
@@ -23,8 +23,8 @@ module Year2015
       visited.count
     end
 
-    def part_2(input_file)
-      directions = input_file.read.chomp
+    def part_2(file)
+      directions = file.read.chomp
       santa = Vector[0, 0]
       robot = Vector[0, 0]
       visited = (Set.new << santa)

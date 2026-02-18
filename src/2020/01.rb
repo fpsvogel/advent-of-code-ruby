@@ -3,20 +3,20 @@ module Year2020
   class Day01
     SUM = 2020
 
-    def part_1(input_file)
-      entries = input_file.map(&:to_i)
+    def part_1(file)
+      entries = file.map(&:to_i)
 
       entries.combination(2).find { _1 + _2 == 2020 }.reduce(:*)
     end
 
-    def part_2(input_file)
-      entries = input_file.map(&:to_i)
+    def part_2(file)
+      entries = file.map(&:to_i)
 
       entries.combination(3).find { _1 + _2 + _3 == 2020 }.reduce(:*)
     end
 
-    def part_1_faster(input_file)
-      entries = input_file.map(&:to_i).to_set
+    def part_1_faster(file)
+      entries = file.map(&:to_i).to_set
 
       entries.each do |entry|
         complement = SUM - entry
@@ -27,8 +27,8 @@ module Year2020
       end
     end
 
-    def part_2_faster(input_file)
-      entries = input_file.map(&:to_i).to_set
+    def part_2_faster(file)
+      entries = file.map(&:to_i).to_set
 
       entries.to_a.combination(2).each do |entry_a, entry_b|
         complement = SUM - entry_a - entry_b

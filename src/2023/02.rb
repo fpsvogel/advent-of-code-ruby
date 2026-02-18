@@ -1,10 +1,10 @@
 # https://adventofcode.com/2023/day/2
 module Year2023
   class Day02
-    def part_1(input_file)
+    def part_1(file)
       possible = {red: 12, green: 13, blue: 14}
 
-      games(input_file).filter_map.with_index { |rounds, i|
+      games(file).filter_map.with_index { |rounds, i|
         game_possible = rounds.all? { |colors|
           colors.all? { |color, count|
             count <= possible[color]
@@ -16,8 +16,8 @@ module Year2023
         .sum
     end
 
-    def part_2(input_file)
-      mins = games(input_file).map { |rounds|
+    def part_2(file)
+      mins = games(file).map { |rounds|
         red = rounds.map { it[:red] || 0 }.max
         green = rounds.map { it[:green] || 0 }.max
         blue = rounds.map { it[:blue] || 0 }.max
@@ -30,8 +30,8 @@ module Year2023
 
     private
 
-    def games(input_file)
-      input_file.map { |line|
+    def games(file)
+      file.map { |line|
         line
           .split(":")
           .last

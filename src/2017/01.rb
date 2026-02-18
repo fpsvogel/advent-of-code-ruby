@@ -1,8 +1,8 @@
 # https://adventofcode.com/2017/day/1
 module Year2017
   class Day01
-    def part_1(input_file)
-      captcha = input_file.read.chomp.chars.map(&:to_i)
+    def part_1(file)
+      captcha = file.read.chomp.chars.map(&:to_i)
       captcha << captcha.first # simulates a circular list
 
       captcha
@@ -12,8 +12,8 @@ module Year2017
         .sum
     end
 
-    def part_2(input_file)
-      captcha = input_file.read.chomp.chars.map(&:to_i)
+    def part_2(file)
+      captcha = file.read.chomp.chars.map(&:to_i)
       first_half, second_half = captcha.each_slice(captcha.size / 2).to_a
 
       first_half

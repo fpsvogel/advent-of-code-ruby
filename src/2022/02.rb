@@ -1,8 +1,8 @@
 # https://adventofcode.com/2022/day/2
 module Year2022
   class Day02
-    def part_1(input_file)
-      rounds = input_file.map(&:split)
+    def part_1(file)
+      rounds = file.map(&:split)
 
       rounds.sum { |opp, you|
         opp = %w[A B C].index(opp)
@@ -19,8 +19,8 @@ module Year2022
       }
     end
 
-    def part_2(input_file)
-      rounds = input_file.readlines(chomp: true).map(&:split)
+    def part_2(file)
+      rounds = file.readlines(chomp: true).map(&:split)
 
       rounds.sum { |opp, you|
         opp = %w[A B C].index(opp)

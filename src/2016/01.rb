@@ -11,13 +11,13 @@ module Year2016
       Vector[-1, 0]
     ]
 
-    def part_1(input_file)
-      final_position = follow_directions(input_file)
+    def part_1(file)
+      final_position = follow_directions(file)
       final_position.sum(&:abs)
     end
 
-    def part_2(input_file)
-      follow_directions(input_file) do |past_positions, new_position|
+    def part_2(file)
+      follow_directions(file) do |past_positions, new_position|
         if past_positions.include?(new_position)
           return new_position.sum(&:abs)
         end
@@ -26,11 +26,11 @@ module Year2016
 
     private
 
-    def follow_directions(input_file)
+    def follow_directions(file)
       positions = [Vector[0, 0]]
       direction = 0
 
-      input_file.read.scan(/(\w)(\d+)/).each do |turn, distance|
+      file.read.scan(/(\w)(\d+)/).each do |turn, distance|
         direction += (turn == "R") ? 1 : -1
         direction %= DIRS.size
 

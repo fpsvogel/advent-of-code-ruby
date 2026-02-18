@@ -21,8 +21,8 @@ module Year2015
       "RSHIFT" => :>>
     }.freeze
 
-    def part_1(input_file)
-      lines = input_file.readlines(chomp: true)
+    def part_1(file)
+      lines = file.readlines(chomp: true)
       wires = wires(lines)
 
       return wires if running_in_specs?
@@ -30,16 +30,16 @@ module Year2015
       wires[:a]
     end
 
-    def part_2(input_file)
-      lines = input_file.readlines(chomp: true)
+    def part_2(file)
+      lines = file.readlines(chomp: true)
       wires_original = wires(lines)
       wires_overridden = wires(lines, b_override: wires_original[:a])
 
       wires_overridden[:a]
     end
 
-    def part_1_assuming_destination_ordering(input_file)
-      input = input_file.read
+    def part_1_assuming_destination_ordering(file)
+      input = file.read
       circuit = input
         .gsub(Regexp.union(OPERATORS.keys), OPERATORS)
         .gsub(/(.+) -> (\w+)/) { format("%2s = #{::Regexp.last_match(1)}", ::Regexp.last_match(2)) }

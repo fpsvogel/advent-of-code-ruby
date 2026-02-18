@@ -1,10 +1,11 @@
 # https://adventofcode.com/2021/day/2
 module Year2021
   class Day02
-    def part_1(input_file)
-      moves = input_file
+    def part_1(file)
+      moves = file
         .map(&:split)
         .map { [_1, _2.to_i] }
+
       x, y = 0, 0
 
       moves.each do |direction, amount|
@@ -18,10 +19,11 @@ module Year2021
       x * y
     end
 
-    def part_2(input_file)
-      moves = input_file
+    def part_2(file)
+      moves = file
         .map(&:split)
         .map { [_1, _2.to_i] }
+
       aim, x, y = 0, 0, 0
 
       moves.each do |direction, amount|

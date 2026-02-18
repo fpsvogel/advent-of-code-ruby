@@ -22,18 +22,18 @@ module Year2016
       [nil, nil, "D", nil, nil]
     ]
 
-    def part_1(input_file)
-      keypad_code(input_file, PT_1_KEYPAD, PT_1_STARTING_POS).to_i
+    def part_1(file)
+      keypad_code(file, PT_1_KEYPAD, PT_1_STARTING_POS).to_i
     end
 
-    def part_2(input_file)
-      keypad_code(input_file, PT_2_KEYPAD, PT_2_STARTING_POS)
+    def part_2(file)
+      keypad_code(file, PT_2_KEYPAD, PT_2_STARTING_POS)
     end
 
     private
 
-    def keypad_code(input_file, keypad, starting_pos)
-      moves = input_file.readlines(chomp: true).map(&:chars)
+    def keypad_code(file, keypad, starting_pos)
+      moves = file.readlines(chomp: true).map(&:chars)
 
       pos = starting_pos
       moves
